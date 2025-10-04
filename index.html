@@ -3,9 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Task Manager | NLR Git</title>
+    <title>Student Task Manager | NLR GROUP OF COMPANY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i> Student Task Manager</h1>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+        <div class="motivational-quote" id="motivationalQuote">
+            "The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="card">
+                    <h2><i class="fas fa-plus-circle"></i> Submit Task Manager</h2>
+                    <form class="task-form" id="taskForm">
+                        <input type="text" class="task-input" id="taskInput" placeholder="Enter a new task...">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prioritySelect"><b>Priority</b></label>
+                                <select class="task-input" id="prioritySelect">
+                                    <option value="low">Low Priority</option>
+                                    <option value="medium" selected>Medium Priority</option>
+                                    <option value="high">High Priority</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="dueDate"><b>Due Date</b></label>
+                                <input type="date" class="task-input" id="dueDate">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-list-check"></i> Task List</h2>
+                    <div class="search-box">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search tasks...">
+                    </div>
+                    <div class="task-tabs">
+                        <button class="tab-btn active" data-filter="all">All Tasks</button>
+                        <button class="tab-btn" data-filter="pending">Pending</button>
+                        <button class="tab-btn" data-filter="completed">Completed</button>
+                    </div>
+                    <div class="task-count" id="taskCount"><b>Your Tasks (0)</b></div>
+                    <ul class="task-list" id="taskList">
+                        <li class="task-item empty-state">
+                            <div class="task-info">
+                                <span class="task-text">No tasks found</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-chart-line"></i> Progress Tracker</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText"><b>0% Complete</b></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-bell"></i> Notifications</h2>
+                    <div class="notification-settings">
+                        <div class="setting-item">
+                            <span>Enable Task Notifications</span>
+                            <label class="switch">
+                                <input type="checkbox" id="notificationToggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <span>Sound Alerts</span>
+                            <label class="switch">
+                                <input type="checkbox" id="soundToggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <span>Motivational Messages</span>
+                            <label class="switch">
+                                <input type="checkbox" id="motivationalToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="card">
+                    <h2><i class="fas fa-clock"></i> Task Timer</h2>
+                    <div class="timer-display" id="timerDisplay">25:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn btn-primary" id="startTimerBtn">Start</button>
+                        <button class="timer-btn btn-warning" id="pauseTimerBtn">Pause</button>
+                        <button class="timer-btn btn-success" id="resetTimerBtn">Reset</button>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <label for="timerDuration"><b>Set Duration (minutes):</b></label>
+                        <input type="number" id="timerDuration" min="1" max="120" value="25" style="width: 60px; padding: 5px; margin-left: 10px;">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-sticky-note"></i> Quick Notes</h2>
+                    <form class="note-form" id="noteForm">
+                        <textarea class="note-input" id="noteInput" placeholder="Jot down your thoughts..."></textarea>
+                        <button type="submit" class="btn btn-primary">Add A Note</button>
+                    </form>
+                    <div class="notes-container" id="notesContainer">
+                        <!-- Notes will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 All Rights Reserved — <strong>NLR GROUP OF COMPANY</strong></p>
+    </footer>
+ <style>
         :root {
             --primary: #4361ee;
             --secondary: #3f37c9;
@@ -420,7 +546,7 @@
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 4px;
             background-color: var(--primary);
             color: white;
             width: 100%;
@@ -525,134 +651,6 @@
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-tasks"></i> Student Task Manager | NLR Git</h1>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
-        </header>
-
-        <div class="motivational-quote" id="motivationalQuote">
-            "The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt
-        </div>
-
-        <div class="main-content">
-            <div class="left-column">
-                <div class="card">
-                    <h2><i class="fas fa-plus-circle"></i> Submit Task Manager</h2>
-                    <form class="task-form" id="taskForm">
-                        <input type="text" class="task-input" id="taskInput" placeholder="Enter a new task...">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="prioritySelect">Priority</label>
-                                <select class="task-input" id="prioritySelect">
-                                    <option value="low">Low Priority</option>
-                                    <option value="medium" selected>Medium Priority</option>
-                                    <option value="high">High Priority</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="dueDate">Due Date</label>
-                                <input type="date" class="task-input" id="dueDate">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add Task</button>
-                    </form>
-                </div>
-
-                <div class="card">
-                    <h2><i class="fas fa-list-check"></i> Task List</h2>
-                    <div class="search-box">
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search tasks...">
-                    </div>
-                    <div class="task-tabs">
-                        <button class="tab-btn active" data-filter="all">All Tasks</button>
-                        <button class="tab-btn" data-filter="pending">Pending</button>
-                        <button class="tab-btn" data-filter="completed">Completed</button>
-                    </div>
-                    <div class="task-count" id="taskCount">Your Tasks (0)</div>
-                    <ul class="task-list" id="taskList">
-                        <li class="task-item empty-state">
-                            <div class="task-info">
-                                <span class="task-text">No tasks found</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h2><i class="fas fa-chart-line"></i> Progress Tracker</h2>
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-                        <div class="progress-text" id="progressText">0% Complete</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2><i class="fas fa-bell"></i> Notifications</h2>
-                    <div class="notification-settings">
-                        <div class="setting-item">
-                            <span>Enable Task Notifications</span>
-                            <label class="switch">
-                                <input type="checkbox" id="notificationToggle">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <div class="setting-item">
-                            <span>Sound Alerts</span>
-                            <label class="switch">
-                                <input type="checkbox" id="soundToggle">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <div class="setting-item">
-                            <span>Motivational Messages</span>
-                            <label class="switch">
-                                <input type="checkbox" id="motivationalToggle" checked>
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="right-column">
-                <div class="card">
-                    <h2><i class="fas fa-clock"></i> Task Timer</h2>
-                    <div class="timer-display" id="timerDisplay">25:00</div>
-                    <div class="timer-controls">
-                        <button class="timer-btn btn-primary" id="startTimerBtn">Start</button>
-                        <button class="timer-btn btn-warning" id="pauseTimerBtn">Pause</button>
-                        <button class="timer-btn btn-success" id="resetTimerBtn">Reset</button>
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <label for="timerDuration">Set Duration (minutes):</label>
-                        <input type="number" id="timerDuration" min="1" max="120" value="25" style="width: 60px; padding: 5px; margin-left: 10px;">
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2><i class="fas fa-sticky-note"></i> Quick Notes</h2>
-                    <form class="note-form" id="noteForm">
-                        <textarea class="note-input" id="noteInput" placeholder="Jot down your thoughts..."></textarea>
-                        <button type="submit" class="btn btn-primary">Add Note</button>
-                    </form>
-                    <div class="notes-container" id="notesContainer">
-                        <!-- Notes will be added here dynamically -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>Developed by NLR GROUP OF COMPANY</p>
-    </footer>
-
     <script>
         // DOM Elements
         const themeToggle = document.getElementById('themeToggle');
